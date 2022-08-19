@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Image, Modal, View, TextInput, Button, Pressable,SafeAreaView, FlatList, Text, StyleSheet } from 'react-native'
+import { Dimensions, Image, Modal, View, TextInput, Button, Pressable,SafeAreaView, FlatList, Text, StyleSheet } from 'react-native'
 import Navigation from './Navigation'
 import { HomeHeader, FocusedStatusBar, NFTCard} from './'
 import { COLORS } from '../constants/COLORS'
@@ -8,6 +8,7 @@ import GoalInput from "./GoalInput"
 import GoalItem from "./GoalItem"
 import {ExampleSVG} from "../assets/images/example.js"
 import examplePNG from "../assets/images/example.png"
+import Title from './ui/Title'
 
 const Home = ({navigation, name="joe"}) => {
     const [message,setMessage] = useState("Waiting...")
@@ -44,17 +45,24 @@ const Home = ({navigation, name="joe"}) => {
         const newGoalList = () => toDoList.filter(item=>item.id!==goalId)
         setToDoList(newGoalList) 
     }
+
+    const deviceWidth = Dimensions.get('window').width
     
     
     return (
         <View style={styles.appContainer}>
-            {console.log('home rendered')}
-            <Button title="Add New Goal" color={COLORS.primary} onPress={switchAddGoalHandler} />
+            <Text>{deviceWidth}px wide</Text>
+            <View style={styles.buttonNewGoalContainer}>
+                <View style={styles.buttonNewGoalView}>
+                    <Pressable onPress={switchAddGoalHandler}>
+                        <Text style={styles.buttonNewGoal}>+</Text>
+                    </Pressable>
+                </View>
+            </View>
             <View style={styles.iconContainer}>
                 <ExampleSVG />
                 {/*<Image style={styles.icon} source={examplePNG} />*/}
             </View>
-
             <Modal visible={modalIsVisible} animationType="slide">
                 <View style={styles.inputContainer}>
                     
@@ -67,17 +75,22 @@ const Home = ({navigation, name="joe"}) => {
                 </View>
             </Modal>
             <View style={styles.goalsContainer}>
-                <Text>List of Goals</Text>
-                <FlatList
-                    data={toDoList}
-                    renderItem={
-                        itemData=> {
-                            const item = `${itemData.item.id}. ${itemData.item.goal}`
-                            return(<GoalItem text={item} goalId={itemData.item.id} deleteGoal={deleteGoal} />)
+                <View style={styles.titleContainer}>
+                <Title>List of Goals</Title>
+                </View>
+                <View style={styles.listContainer}>
+                    <FlatList
+                        data={toDoList}
+                        renderItem={
+                            itemData=> {
+                                const item = `${itemData.item.id}. ${itemData.item.goal}`
+                                return(<GoalItem text={item} goalId={itemData.item.id} deleteGoal={deleteGoal} />)
+                            }
                         }
-                    }
-                    keyExtractor={item=> `goal-id-${item.id}`}
-                />
+                        keyExtractor={item=> `goal-id-${item.id}`}
+                    />
+                </View>
+                
                 
                 
             </View>

@@ -4,7 +4,7 @@ import { ActivityIndicator, StyleSheet, Text, View, Button } from 'react-native'
 import { NavigationContainer, StackActions, DefaultTheme } from '@react-navigation/native'
 import AppLoading from 'expo-app-loading'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { useFonts, Inter_300Light } from '@expo-google-fonts/inter';
+import { useFonts } from 'expo-font';
 import Home from "./components/Home"
 import Details from "./components/Details"
 
@@ -25,10 +25,10 @@ const homeOptions = {
 
 
 const App = () => {
-  const [loaded] = useFonts({
-    RobotoSlabRegular: require("./assets/fonts/RobotoSlab-Regular.ttf")
+  const [fontsLoaded] = useFonts({
+    'roboto-slab-regular': require("./assets/fonts/RobotoSlab-Regular.ttf")
   })
-  if (!loaded) return null
+  if (!fontsLoaded) return null
   return (
     <NavigationContainer theme={theme}>
       <Stack.Navigator screenOptions={{ headerShown:false }} initialRouteName="Home">

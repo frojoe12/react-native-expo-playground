@@ -11,10 +11,13 @@ const styles=StyleSheet.create({
         borderRadius:6,
         padding:8,
         backgroundColor:COLORS.secondary,
-        color:'white'
+        color:'white',
+        
+
     },
     goalItemText: {
-        color:'white'
+        color:'white',
+        fontFamily: 'roboto-slab-regular',
     },
     pressedItem: {
         opacity:.5

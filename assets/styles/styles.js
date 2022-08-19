@@ -4,7 +4,8 @@ const styles = StyleSheet.create({
     appContainer: {
         paddingTop:50,
         paddingHorizontal:16,
-        flex:1
+        flex:1,
+        
     },
     inputContainer: {
         flex:1,
@@ -59,6 +60,40 @@ const styles = StyleSheet.create({
     icon: {
         width:'70%',
         height:'70%'
+    },
+    titleContainer: {
+        flexDirection:'column',
+        justifyContent:'center',
+        alignItems:'center',
+        marginTop:3,
+        marginBotom:3
+    },
+    headerOne: {
+        fontFamily:'roboto-slab-regular',
+        fontSize:30,
+
+    },
+    listContainer: {
+    },
+    buttonNewGoalContainer: {
+        justifyContent:'flex-end',
+        alignItems:'flex-end'
+    },
+    buttonNewGoalView: {
+        backgroundColor: 'green',
+        borderRadius:10,
+        width:'20%',
+        alignItems:'center',
+        justifyContent:'flex-end'
+    },
+    buttonNewGoal: {
+        padding:12,
+        justifyContent:'center',
+        alignItems:'center',
+        color:'white',
+        textAlign:'center',
+        fontFamily:'roboto-slab-regular',
+        fontSize:20,
     }
 })
 
