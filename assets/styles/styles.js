@@ -50,6 +50,15 @@ const styles = StyleSheet.create({
     },
     goalsPressable: {
         marginRight:20
+    },
+    iconContainer: {
+        flex:2,
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    icon: {
+        width:'70%',
+        height:'70%'
     }
 })
 

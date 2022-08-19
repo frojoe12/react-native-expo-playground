@@ -1,11 +1,13 @@
 import React, { useState } from "react"
-import { Modal, View, TextInput, Button, Pressable,SafeAreaView, FlatList, Text, StyleSheet } from 'react-native'
+import { Image, Modal, View, TextInput, Button, Pressable,SafeAreaView, FlatList, Text, StyleSheet } from 'react-native'
 import Navigation from './Navigation'
 import { HomeHeader, FocusedStatusBar, NFTCard} from './'
 import { COLORS } from '../constants/COLORS'
 import { styles } from '../assets/styles/styles'
 import GoalInput from "./GoalInput"
 import GoalItem from "./GoalItem"
+import {ExampleSVG} from "../assets/images/example.js"
+import examplePNG from "../assets/images/example.png"
 
 const Home = ({navigation, name="joe"}) => {
     const [message,setMessage] = useState("Waiting...")
@@ -40,15 +42,22 @@ const Home = ({navigation, name="joe"}) => {
     }
     const deleteGoal = (goalId) => {
         const newGoalList = () => toDoList.filter(item=>item.id!==goalId)
-        // setToDoList(newGoalList) 
+        setToDoList(newGoalList) 
     }
     
     
     return (
         <View style={styles.appContainer}>
+            {console.log('home rendered')}
             <Button title="Add New Goal" color={COLORS.primary} onPress={switchAddGoalHandler} />
+            <View style={styles.iconContainer}>
+                <ExampleSVG />
+                {/*<Image style={styles.icon} source={examplePNG} />*/}
+            </View>
+
             <Modal visible={modalIsVisible} animationType="slide">
                 <View style={styles.inputContainer}>
+                    
                     <GoalInput 
                         changeText={changeText}
                         textInput={textInput}
