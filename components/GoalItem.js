@@ -10,7 +10,7 @@ const styles=StyleSheet.create({
         marginTop:20,
         borderRadius:6,
         padding:8,
-        backgroundColor:COLORS.secondary,
+        backgroundColor:COLORS.primary,
         color:'white',
         
 

@@ -1,6 +1,6 @@
 const COLORS = {
-    primary:'green',
-    secondary:'rgb(50,130,120)',
+    primary:'#3700B3',
+    secondary:'#6200EE',
     tertiary:'orange'
 }
 

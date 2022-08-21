@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native'
-
+import { COLORS } from './colors'
 const styles = StyleSheet.create({
     appContainer: {
         paddingTop:50,
         paddingHorizontal:16,
-        flex:1,
+        flex:1
         
     },
     inputContainer: {
@@ -12,19 +12,17 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         justifyContent:'space-between',
-        borderBottom:24,
-        borderBottomWidth:1,
-        borderBottomColr: 'rgba(200,200,200,1)',
-        marginBottom:24
+        backgroundColor:'rgba(0,0,0,.1)'
     },
     textInput: {
         borderWidth:1,
         borderColor:'rgba(200,200,200,1)',
         padding:10,
-        width:'90%'
+        width:'90%',
+        backgroundColor:'white'
     },
     goalsContainer: {
-        flex:4,
+        flex:5,
     },
     
     buttonOuter: {
@@ -62,6 +60,7 @@ const styles = StyleSheet.create({
         height:'70%'
     },
     titleContainer: {
+        flex:1,
         flexDirection:'column',
         justifyContent:'center',
         alignItems:'center',
@@ -74,26 +73,28 @@ const styles = StyleSheet.create({
 
     },
     listContainer: {
+        flex:4,
+        marginBottom:10
     },
     buttonNewGoalContainer: {
+        flex:1,
         justifyContent:'flex-end',
         alignItems:'flex-end'
     },
     buttonNewGoalView: {
-        backgroundColor: 'green',
+        backgroundColor: COLORS.secondary,
         borderRadius:10,
-        width:'20%',
         alignItems:'center',
-        justifyContent:'flex-end'
+        paddingHorizontal:16,
+        paddingVertical:7
     },
     buttonNewGoal: {
-        padding:12,
         justifyContent:'center',
         alignItems:'center',
         color:'white',
         textAlign:'center',
         fontFamily:'roboto-slab-regular',
-        fontSize:20,
+        fontSize:30,
     }
 })
 

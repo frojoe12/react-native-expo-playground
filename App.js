@@ -5,7 +5,7 @@ import { NavigationContainer, StackActions, DefaultTheme } from '@react-navigati
 import AppLoading from 'expo-app-loading'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
-import Home from "./components/Home"
+import { Home } from "./screens"
 import Details from "./components/Details"
 
 
@@ -23,7 +23,7 @@ const homeOptions = {
   title: "Home Page"
 }
 
-
+const Test = () => (<View><Text>hello</Text></View>)
 const App = () => {
   const [fontsLoaded] = useFonts({
     'roboto-slab-regular': require("./assets/fonts/RobotoSlab-Regular.ttf")
