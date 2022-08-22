@@ -5,8 +5,11 @@ import { NavigationContainer, StackActions, DefaultTheme } from '@react-navigati
 import AppLoading from 'expo-app-loading'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
-import { Home } from "./screens"
+import { Home, HomeScreen } from "./screens"
 import Details from "./components/Details"
+import { TailwindProvider } from "tailwindcss-react-native";
+
+
 
 
 const Stack = createNativeStackNavigator();
@@ -30,12 +33,14 @@ const App = () => {
   })
   if (!fontsLoaded) return null
   return (
-    <NavigationContainer theme={theme}>
-      <Stack.Navigator screenOptions={{ headerShown:false }} initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} options={homeOptions} />
-        <Stack.Screen name="Details" component={Details} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <TailwindProvider>
+      <NavigationContainer theme={theme}>
+        <Stack.Navigator screenOptions={{ headerShown:false }} initialRouteName="HomeScreen">
+          <Stack.Screen name="HomeScreen" component={HomeScreen} options={homeOptions} />
+          <Stack.Screen name="Details" component={Details} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </TailwindProvider>
   );
 }
 

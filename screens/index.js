@@ -1,4 +1,4 @@
 import Home from './Home/Home'
-import Main from './Main/Main'
+import HomeScreen from './HomeScreen/HomeScreen'
 
-export { Home, Main }
+export { Home, HomeScreen }

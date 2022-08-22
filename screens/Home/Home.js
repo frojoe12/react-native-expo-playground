@@ -47,10 +47,11 @@ const Home = ({navigation, name="joe"}) => {
     /* <Text>{deviceWidth}px wide</Text>*/
     return (
         <View style={styles.appContainer}>
+            <Text className='text-red-500 font-bold' >hello</Text>
             <View style={styles.buttonNewGoalContainer}>
                 <Pressable onPress={switchAddGoalHandler}>
                     <View style={styles.buttonNewGoalView}>
-                            <Text style={styles.buttonNewGoal}>+</Text>
+                        <Text style={styles.buttonNewGoal}>+</Text>
                     </View>
                 </Pressable>
             </View>
