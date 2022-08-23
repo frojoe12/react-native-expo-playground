@@ -1,11 +1,11 @@
-import React from "react"
-import { StyleSheet, SafeAreaView, View, Text, FlatList, Pressable, Platform} from "react-native"
+import React from 'react'
+import { StyleSheet, SafeAreaView, View, Text, FlatList, Pressable, Platform} from 'react-native'
 import { CATEGORIES } from '../../data/dummy-data'
 const Home = () => {
     return (
         <SafeAreaView style={{flex:1}}> 
             <FlatList
-            style={styles.listView}
+                style={styles.listView}
                 data={CATEGORIES}
                 keyExtractor={(item) => item.id}
                 renderItem={(itemData) => (
