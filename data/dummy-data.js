@@ -15,6 +15,9 @@ export const CATEGORIES = [
 ]
 
 export const MEALS = [
-    new Meal('m1','','')
+    new Meal('m1',['c1','c4','c5'],'Spaghetti','cheap','easy','url','5 minutes','pasta, garlic'),
+    new Meal('m2',['c3','c5','c7'],'MeatBalls','cheap','easy','url','5 minutes','pasta, garlic'),
+    new Meal('m3',['c9','c10','c2'],'Chips','cheap','easy','url','5 minutes','potato'),
 ]
+
 
