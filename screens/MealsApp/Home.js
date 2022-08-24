@@ -1,16 +1,22 @@
 import React from 'react'
 import { StyleSheet, SafeAreaView, View, Text, FlatList, Pressable, Platform} from 'react-native'
 import { CATEGORIES } from '../../data/dummy-data'
-const Home = () => {
+const Home = ({navigation}) => {
+
+    const onPressHandler = () => {
+        navigation.navigate('MealsScreen')
+    }
+
     return (
-        <SafeAreaView style={{flex:1}}> 
+        <SafeAreaView style={{ flex:1 }}> 
             <FlatList
                 style={styles.listView}
                 data={CATEGORIES}
                 keyExtractor={(item) => item.id}
+                numColumns={2}
                 renderItem={(itemData) => (
                     <View style={styles.gridItem} >
-                        <Pressable style={({pressed}) => [styles.button, pressed ? styles.buttonPressed : null]}>
+                        <Pressable onPress={onPressHandler} style={({pressed}) => [styles.button, pressed ? styles.buttonPressed : null]}>
                             <View style={[styles.innerContainer,{backgroundColor:itemData.item.color}]}><Text style={styles.buttonText}>{itemData.item.title}</Text></View>
                         </Pressable>
                     </View>
@@ -23,10 +29,9 @@ const Home = () => {
 
 const styles=StyleSheet.create({
     gridItem: {
-        
-        margin:16,
-        height:80,
-        width:80,
+        flex:1,
+        margin:14,
+        height:120,
         borderRadius:8,
         elevation: 4,
         shadowColor:'black',
@@ -38,8 +43,6 @@ const styles=StyleSheet.create({
     },
     listView: {
         flex:1,
-        flexDirection:'row-reverse',
-        flexWrap:'wrap',
         backgroundColor:'#efefef'
     },
     button: {
@@ -57,7 +60,7 @@ const styles=StyleSheet.create({
     },
     buttonText: {
         fontWeight:'bold',
-        fontSize: 18,
+        fontSize: 15,
         color:'white'
     }
 })
