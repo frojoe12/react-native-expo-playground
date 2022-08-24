@@ -1,10 +1,13 @@
+import { Inter_500Medium } from '@expo-google-fonts/inter'
 import React from 'react'
 import { StyleSheet, SafeAreaView, View, Text, FlatList, Pressable, Platform} from 'react-native'
 import { CATEGORIES } from '../../data/dummy-data'
 const Home = ({navigation}) => {
 
-    const onPressHandler = () => {
-        navigation.navigate('MealsScreen')
+    const onPressHandler = (itemData) => () => {
+        navigation.navigate('MealsScreen', {
+            categoryId: itemData.item.id
+        })
     }
 
     return (
@@ -16,7 +19,7 @@ const Home = ({navigation}) => {
                 numColumns={2}
                 renderItem={(itemData) => (
                     <View style={styles.gridItem} >
-                        <Pressable onPress={onPressHandler} style={({pressed}) => [styles.button, pressed ? styles.buttonPressed : null]}>
+                        <Pressable onPress={onPressHandler(itemData)} style={({pressed}) => [styles.button, pressed ? styles.buttonPressed : null]}>
                             <View style={[styles.innerContainer,{backgroundColor:itemData.item.color}]}><Text style={styles.buttonText}>{itemData.item.title}</Text></View>
                         </Pressable>
                     </View>
