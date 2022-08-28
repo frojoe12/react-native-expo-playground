@@ -6,7 +6,10 @@ import FoodImage from '../../../assets/images/food-image.jpg'
 const MealItem = ({title, onMealSelectHandler, duration, complexity, affordability}) => {
     return (
         <View style={styles.mealItem}>
-            <Pressable onPress={onMealSelectHandler}>
+            <Pressable 
+                onPress={onMealSelectHandler}
+                style={({pressed}) => pressed ? styles.buttonPressed : styles.buttonUp}
+            >
                 <View>
                     <Image style={styles.image} source={FoodImage} />
                     <View style={styles.textWrapper}>
@@ -41,7 +44,7 @@ const styles=StyleSheet.create({
     },
     image: {
         width:'100%',
-        height: 200
+        height: 150
     },
     textWrapper: {
         padding:14
@@ -49,8 +52,9 @@ const styles=StyleSheet.create({
     title: {
         fontWeight: 'bold',
         textAlign: 'center',
-        fontSize: 18,
-        paddingBottom:10
+        fontSize: 22,
+        paddingBottom:10,
+        fontFamily:'roboto-slab-regular'
     },
     label: {
         fontWeight: 'bold',
@@ -59,6 +63,12 @@ const styles=StyleSheet.create({
     },
     description: {
         fontSize: 14
+    },
+    buttonPressed: {
+        backgroundColor:'#ddd'
+    },
+    buttonUp: {
+        backgroundColor:'#efefef'
     }
 })
 

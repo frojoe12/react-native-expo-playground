@@ -5,10 +5,13 @@ import { NavigationContainer, StackActions, DefaultTheme } from '@react-navigati
 import AppLoading from 'expo-app-loading'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { useFonts } from 'expo-font'
-import  Home  from './screens/MealsApp/Home'
+import Home  from './screens/MealsApp/Home'
 import Meals from './screens/MealsApp/Meals'
+import MealsDetail from './screens/MealsApp/MealsDetail'
 import Details from './components/Details'
 import { TailwindProvider } from 'tailwindcss-react-native'
+
+import { CATEGORIES } from './data/dummy-data'
 
 
 
@@ -24,7 +27,7 @@ const theme = {
 }  
 
 const homeOptions = {
-    title: 'Home Page'
+    title: 'Home'
 }
 
 const Test = () => (<View><Text>hello</Text></View>)
@@ -38,9 +41,12 @@ const App = () => {
     return (
         <TailwindProvider>
             <NavigationContainer theme={theme}>
-                <Stack.Navigator screenOptions={{ headerShown:false }} initialRouteName="HomeScreen">
+                <Stack.Navigator screenOptions={{ headerShown:true }} initialRouteName="HomeScreen">
                     <Stack.Screen name="HomeScreen" component={Home} options={homeOptions}  />
-                    <Stack.Screen name="MealsScreen" component={Meals} />
+                    <Stack.Screen name="MealsScreen" component={Meals}
+                    />
+                    <Stack.Screen name="MealsDetailScreen" component={MealsDetail}
+                    />
                 </Stack.Navigator>
             </NavigationContainer>
         </TailwindProvider>
