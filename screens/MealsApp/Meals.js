@@ -37,6 +37,7 @@ const Meals = () => {
             duration: item.duration,
             complexity: item.complexity,
             affordability: item.affordability,
+            image: item.image
         }
         return (<MealItem onMealSelectHandler={mealSelectHandler} {...mealItemProps} />)
     }

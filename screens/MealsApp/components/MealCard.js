@@ -1,25 +1,28 @@
 import React from 'react'
-import {Image, Pressable, View, Text, StyleSheet} from 'react-native'
+import {Image, Pressable, View, Text, StyleSheet, ScrollView} from 'react-native'
 
 import FoodImage from '../../../assets/images/food-image.jpg'
 
-const MealCard = ({title, ingredients, complexity, affordability, recipe}) => {
+const MealCard = ({title, ingredients, recipe, image}) => {
     return (
         <View style={styles.mealItem}>
             
-            <View>
-                <Image style={styles.image} source={FoodImage} />
-                <View style={styles.textWrapper}>
-                    <Text style={styles.title}>{title}</Text>
-                    <View>
-                        <Text style={styles.label}>INGREDIENTS</Text>
-                        <Text style={styles.description}>{ingredients}</Text>
-                    </View>
-                    <View>
-                        <Text style={styles.label}>RECIPE</Text>
-                        <Text style={styles.description}>{recipe}</Text>
-                    </View>
+            <View style={{ flex:1 }}>
+                <Image style={styles.image} source={image} />
+                <View style={styles.scrollViewWrapper}>
+                    <ScrollView style={styles.textWrapper}>
+                        <Text style={styles.title}>{title}</Text>
+                        <View>
+                            <Text style={styles.label}>INGREDIENTS</Text>
+                            {ingredients.map(ingredient => <Text key={ingredient} style={styles.description}>{ingredient}</Text>)}
+                        </View>
+                        <View>
+                            <Text style={styles.label}>RECIPE</Text>
+                            {recipe.map((recipeItem,index)=><Text key={recipeItem} style={styles.description}>{index+1}. {recipeItem}</Text>)}
+                        
+                        </View>
                     
+                    </ScrollView>
                 </View>
             </View>
         </View>
@@ -28,19 +31,21 @@ const MealCard = ({title, ingredients, complexity, affordability, recipe}) => {
 
 const styles=StyleSheet.create({
     mealItem: {
+        flex:1,
         borderRadius:4,
         overflow:'hidden',
         margin:14,
-        marginTop:0,
+       
         backgroundColor:'#efefef',
         
     },
     image: {
         width:'100%',
-        height: 300
+        height: 220,
+       
     },
     textWrapper: {
-        padding:14
+       
     },
     title: {
         fontWeight: 'bold',
@@ -52,7 +57,7 @@ const styles=StyleSheet.create({
     label: {
         fontWeight: 'bold',
         fontSize:12,
-        paddingTop:12
+        paddingTop:20
     },
     description: {
         fontSize: 14
@@ -62,6 +67,11 @@ const styles=StyleSheet.create({
     },
     buttonUp: {
         backgroundColor:'#efefef'
+    },
+    scrollViewWrapper: {
+        flex:1,
+        padding:14,
+        marginVertical:20,
     }
 })
 

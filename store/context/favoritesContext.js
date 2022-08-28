@@ -1,0 +1,31 @@
+import { createContext, useState} from 'react'
+import Favorites from '../../screens/MealsApp/Favorites'
+
+export const FavoritesContext = createContext({
+    ids: [],
+    addFavorite: (id) => {},
+    removeFavorite: (id) => {}
+})
+
+const FavoritesContextProvider = ({children}) => {
+
+    const [favoriteMealIds,setFavoriteMealIds] = useState([])
+
+    const addFavorite = (id) => {
+        setFavoriteMealIds(prev => [...prev, id])
+    }
+    
+    const removeFavorite = (id) => {
+        setFavoriteMealIds(prev => prev.filter(mealId => mealId !== id))
+    }
+
+    const value = {
+        ids: favoriteMealIds,
+        addFavorite,
+        removeFavorite
+    }
+
+    return <FavoritesContext.Provider value={value}>{children}</FavoritesContext.Provider>
+}
+
+export default FavoritesContextProvider

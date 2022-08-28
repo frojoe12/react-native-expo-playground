@@ -3,7 +3,7 @@ import {Image, Pressable, View, Text, StyleSheet} from 'react-native'
 
 import FoodImage from '../../../assets/images/food-image.jpg'
 
-const MealItem = ({title, onMealSelectHandler, duration, complexity, affordability}) => {
+const MealItem = ({title, onMealSelectHandler, duration, complexity, affordability, image}) => {
     return (
         <View style={styles.mealItem}>
             <Pressable 
@@ -11,7 +11,7 @@ const MealItem = ({title, onMealSelectHandler, duration, complexity, affordabili
                 style={({pressed}) => pressed ? styles.buttonPressed : styles.buttonUp}
             >
                 <View>
-                    <Image style={styles.image} source={FoodImage} />
+                    <Image style={styles.image} source={image} />
                     <View style={styles.textWrapper}>
                         <Text style={styles.title}>{title}</Text>
                         <View>

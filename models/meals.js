@@ -8,7 +8,8 @@ class Meal {
         imageUrl,
         duration,
         ingredients,
-        recipe
+        recipe,
+        image
     ) {
         this.id = id
         this.categoryIds = categoryIds
@@ -19,6 +20,7 @@ class Meal {
         this.duration = duration
         this.ingredients = ingredients
         this.recipe = recipe
+        this.image = image
     }}
 
 export default Meal    
