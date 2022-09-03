@@ -21,7 +21,7 @@ const MealsDetail = () => {
 
     const mealIsFavorite = favoriteMealsContext.ids.includes(mealId)
 
-    const headerButtonPressHandler = () => {
+    const changeFavoriteStatusHandler = () => {
         if (mealIsFavorite) {
             favoriteMealsContext.removeFavorite(mealId)
         } else {
@@ -35,12 +35,12 @@ const MealsDetail = () => {
             return {
                 title:mealTitle,
                 headerRight: () => {
-                    return (<IconButton headerButtonPressHandler={headerButtonPressHandler}><View style={{ padding:5 }}><Ionicons name="star" size={24} color={mealIsFavorite ? '#e91e63' : '#bbbbbb'}/></View></IconButton>)
+                    return (<IconButton onPressHandler={changeFavoriteStatusHandler}><View style={{ padding:5 }}><Ionicons name="star" size={24} color={mealIsFavorite ? '#e91e63' : '#bbbbbb'}/></View></IconButton>)
                 }
             }
         } 
         navigation.setOptions(titleOptions())
-    },[navigation, headerButtonPressHandler])
+    },[navigation, changeFavoriteStatusHandler])
     const selectedMeal = MEALS.find(meal=>meal.id===mealId)
 
     return (<SafeAreaView style={{ flex:1 }}><MealCard {...selectedMeal} /></SafeAreaView>)

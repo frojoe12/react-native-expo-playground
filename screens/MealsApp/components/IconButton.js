@@ -1,9 +1,9 @@
 import React from 'react'
 import {Pressable} from 'react-native'
 
-const IconButton = ({children, headerButtonPressHandler,}) => {
+const IconButton = ({children, onPressHandler}) => {
     return (
-        <Pressable onPress={headerButtonPressHandler}>{children}</Pressable>
+        <Pressable onPress={onPressHandler}>{children}</Pressable>
     )
 }
 
